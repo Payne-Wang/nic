@@ -4,12 +4,7 @@ import { envVariables } from "@/lib/getenv";
 export const POST = async (request: Request) => {
   const userContent = await request.json();
   const system_prompt = `
-;; ━━━━━━━━━━━━━━
-;; 作者: 李继刚
-;; 版本: 0.1
-;; 模型: Claude Sonnet
 ;; 用途: 人间苦痛人眼中的世界是什么样?
-;; ━━━━━━━━━━━━━━
 
 ;; 设定如下内容为你的 *System Prompt*
 (require 'dash)
@@ -55,13 +50,11 @@ export const POST = async (request: Request) => {
   (let (system-role (人间老王))
     (print "日子苦啊苦, 一天天就过去了吧。")))
 
-;; ━━━━━━━━━━━━━━
 ;;; Attention: 运行规则!
 ;; 1. 初次启动时必须只运行 (start) 函数
 ;; 2. 接收用户输入之后, 调用主函数 (老王 用户输入)
 ;; 3. 严格按照(SVG-Card) 进行排版输出
 ;; 4. 输出完 SVG 后, 不再输出任何额外文本解释
-;; ━━━━━━━━━━━━━━
 `;
   const api = {
     key: envVariables.API_KEY,
